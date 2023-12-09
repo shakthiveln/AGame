@@ -27,10 +27,12 @@ function onClickDo(event, element, id) {
     if (firstWordSelected == null) {
         firstWordSelected = shuffledList[id];
         console.log("First word Selected: " + firstWordSelected);
+        document.getElementById("fillFirstSelectedWordID").innerHTML = firstWordSelected;
     }
     else if (secondWordSelected == null) {
         secondWordSelected = shuffledList[id];
         console.log("Second word Selected: " + secondWordSelected);
+        document.getElementById("fillSecondSelectedWordID").innerHTML = firstWordSelected;
     }
     else {
         console.log(firstWordSelected + secondWordSelected);
@@ -48,6 +50,8 @@ function onClickDo(event, element, id) {
         }
         firstWordSelected = null;
         secondWordSelected = null;
+        document.getElementById("fillFirstSelectedWordID").innerHTML = "";
+        document.getElementById("fillSecondSelectedWordID").innerHTML = "";
     }
 }
 
@@ -65,7 +69,8 @@ for (var i = 0; i < 9; i++) {
     for (var j = 0; j < 9; j++) {
         let td = document.createElement("td");
         td.setAttribute("id", count);
-        td.setAttribute("onClick", "onClickDo(event, this, id);")
+        td.setAttribute("onClick", "onClickDo(event, this, id);");
+        td.setAttribute("class","box");
         td.innerText = shuffledList[count];
         count++;
         tr.appendChild(td);

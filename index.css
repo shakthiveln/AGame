@@ -1,10 +1,10 @@
 html,
 body {
+    font-family: 'Afacad', sans-serif;
     height: 100%;
 }
 
 body {
-    margin: 0;
     background: -webkit-linear-gradient(45deg, #49a09d, #5f2c82);
     background: linear-gradient(45deg, #49a09d, #5f2c82);
     font-family: sans-serif;
@@ -31,6 +31,10 @@ td {
     padding: 15px;
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    perspective: 1000px;
 }
 
 th {
@@ -63,7 +67,7 @@ tbody td:hover:before {
 table {
     border-collapse: collapse;
     width: 50%;
-    margin: 100px auto;
+    margin: auto;
 }
 
 table,
@@ -76,4 +80,23 @@ th,
 td {
     padding: 20px;
     text-align: center;
+}
+
+.box {
+    background-color: #4CAF50;
+    color: white;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.box.opened {
+    transform: rotateY(180deg);
+}
+
+.box .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backface-visibility: hidden;
 }
