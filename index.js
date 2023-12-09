@@ -1,3 +1,7 @@
+var firstWordSelected;
+var secondWordSelected;
+
+
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -6,19 +10,11 @@ function shuffleArray(array) {
     return array;
 }
 
-function check() {
-
-    // const validList =["brute force"];
-    // console.log("Hello There!");
-    // let first;
-    // let second;
-    // let result = first.concat(second);
-    // let i = 0;
-    // if (result == mylist) {
-    //     let score = i + 1;
-    // } else {
-
-    // }
+function onClickDo(event, asdf, z) {
+    console.log("Clicked");
+    console.log(event);
+    console.log(asdf);
+    console.log(z);
 }
 
 const mylist = ["brute", "force", "Firewall", 'Credential', 'DDoS', 'Malware', 'Trojan', 'Social', 'Advanced', "brute", "force", "Firewall", 'Data', 'DNS', 'Spear', 'Crypto', 'SQL', 'Supply', "brute", "force", "Firewall", 'Ransomware', 'Insider', 'Spoofing', 'Phishing', 'b', 'c', "brute", "force", "Firewall", 'jacking', 'Exploit', 'Injection', 'Chain', 'Authentication', 'Protocol', "Cache", "force", "Computing", 'Analysis', 'Learning', 'Stack', 'a', 'b', 'c', "brute", "force", "Firewall", 'a', 'b', 'c', 'a', 'b', 'c', "brute", "force", "Firewall", 'a', 'b', 'c', 'a', 'b', 'c', "brute", "force", "Firewall", 'a', 'b', 'c', 'a', 'b', 'c', "brute", "force", "Firewall", 'a', 'b', 'c', 'a', 'b', 'c', "brute", "force", "Firewall", 'a', 'b', 'c', 'a', 'b', 'c'];
@@ -35,11 +31,7 @@ for (var i = 0; i < 9; i++) {
     for (var j = 0; j < 9; j++) {
         let td = document.createElement("td");
         td.setAttribute("id", i + "_" + j);
-        
-        
-        // let button =document.createElement("button");
-        // button.setAttribute("button",check());           // onclick="check()"> </button> 
-        // inputBtn.addEventListener("click", getInputVal);
+        td.setAttribute("onClick", "onClickDo(event, this);")
         td.innerText = shuffledList[count];
         count++;
         tr.appendChild(td);
@@ -47,8 +39,3 @@ for (var i = 0; i < 9; i++) {
     table.appendChild(tr);
 }
 divid.appendChild(table);
-
-var div = document.getElementById("id"); 
-div.onclick = function() {check}; 
-
-        //  div.addEventListener("click",check);
