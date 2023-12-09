@@ -9,15 +9,15 @@ function shuffleArray(array) {
     return array;
 }
 
-function isThisCorrect(){
-    if(correctWordsJSON[firstWordSelected] === secondWordSelected){
+function isThisCorrect() {
+    if (correctWordsJSON[firstWordSelected] === secondWordSelected) {
         console.log("Correct word");
         return true;
     }
     return false;
 }
 
-function onClickDo(event, element, id) {
+function onClickDo(element, id) {
     console.log("Clicked");
     console.log(id);
     console.log(element.getInnerHTML());
@@ -39,8 +39,8 @@ function onClickDo(event, element, id) {
         return null;
     }
 
-    if(firstWordSelected != null && secondWordSelected != null){
-        if (isThisCorrect()){
+    if (firstWordSelected != null && secondWordSelected != null) {
+        if (isThisCorrect()) {
             // TODO: Increase Score.
             // Leave boxes open.
             window.alert("CORRECT");
@@ -55,6 +55,15 @@ function onClickDo(event, element, id) {
     }
 }
 
+function openDoor(element) {
+    console.log(element)
+    var cell = document.getElementById(element);
+    cell.classList.add("show");
+    cell.classList.remove("hide");
+    // cell.innerHTML = '<div class="content">Value: ' + getRandomValue() + '</div>';
+    cell.style.cursor = "default";
+    // cell.onclick = null;
+}
 
 /*
 * Constructed Table.
@@ -64,14 +73,16 @@ let divid = document.getElementById("gameTableDivId");
 let table = document.createElement("table");
 let count = 0;
 
-for (var i = 0; i < 9; i++) {
+for (var row = 0; row < 9; row++) {
     let tr = document.createElement("tr");
-    for (var j = 0; j < 9; j++) {
+    for (var col = 0; col < 9; col++) {
         let td = document.createElement("td");
         td.setAttribute("id", count);
-        td.setAttribute("onClick", "onClickDo(event, this, id);");
-        td.setAttribute("class","box");
-        td.innerText = shuffledList[count];
+        td.setAttribute("onClick", "onClickDo(this, id);openDoor(id)");
+        td.setAttribute("class", "box hide");
+        let span = document.createElement("p");
+        span.innerText = shuffledList[count];
+        td.appendChild(span);
         count++;
         tr.appendChild(td);
     }
