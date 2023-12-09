@@ -1,5 +1,6 @@
 var firstWordSelected = null;
 var secondWordSelected = null;
+var point = 0;
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -32,21 +33,27 @@ function onClickDo(element, id) {
     else if (secondWordSelected == null) {
         secondWordSelected = shuffledList[id];
         console.log("Second word Selected: " + secondWordSelected);
-        document.getElementById("fillSecondSelectedWordID").innerHTML = firstWordSelected;
+        document.getElementById("fillSecondSelectedWordID").innerHTML = secondWordSelected;
     }
     else {
         console.log(firstWordSelected + secondWordSelected);
         return null;
     }
 
-    if (firstWordSelected != null && secondWordSelected != null) {
-        if (isThisCorrect()) {
+    // setTimeout(final,5000);
+
+    if(firstWordSelected != null && secondWordSelected != null){
+        if (isThisCorrect()){
+            point++;
             // TODO: Increase Score.
             // Leave boxes open.
             window.alert("CORRECT");
+            console.log("correct");
+            document.getElementById("score").innerText = point;
         }
         else {
-            window.alert("WRONG!!!");
+            // window.alert("WRONG!!!");
+            console.log("wrong");
         }
         firstWordSelected = null;
         secondWordSelected = null;
