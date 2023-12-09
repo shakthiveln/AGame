@@ -1,6 +1,5 @@
-var firstWordSelected;
-var secondWordSelected;
-
+var firstWordSelected = null;
+var secondWordSelected = null;
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -10,32 +9,68 @@ function shuffleArray(array) {
     return array;
 }
 
-function onClickDo(event, asdf, z) {
-    console.log("Clicked");
-    console.log(event);
-    console.log(asdf);
-    console.log(z);
+function isThisCorrect(){
+    if(correctWordsJSON[firstWordSelected] === secondWordSelected){
+        console.log("Correct word");
+        return true;
+    }
+    return false;
 }
 
-const mylist = ["brute", "force", "Firewall", 'Credential', 'DDoS', 'Malware', 'Trojan', 'Social', 'Advanced', "brute", "force", "Firewall", 'Data', 'DNS', 'Spear', 'Crypto', 'SQL', 'Supply', "brute", "force", "Firewall", 'Ransomware', 'Insider', 'Spoofing', 'Phishing', 'b', 'c', "brute", "force", "Firewall", 'jacking', 'Exploit', 'Injection', 'Chain', 'Authentication', 'Protocol', "Cache", "force", "Computing", 'Analysis', 'Learning', 'Stack', 'a', 'b', 'c', "brute", "force", "Firewall", 'a', 'b', 'c', 'a', 'b', 'c', "brute", "force", "Firewall", 'a', 'b', 'c', 'a', 'b', 'c', "brute", "force", "Firewall", 'a', 'b', 'c', 'a', 'b', 'c', "brute", "force", "Firewall", 'a', 'b', 'c', 'a', 'b', 'c', "brute", "force", "Firewall", 'a', 'b', 'c', 'a', 'b', 'c'];
-const newArray = [mylist];
-var shuffledList = shuffleArray(mylist);
-console.log(shuffledList);
+function onClickDo(event, element, id) {
+    console.log("Clicked");
+    console.log(id);
+    console.log(element.getInnerHTML());
+    id = parseInt(id);
+    let value = element.getInnerHTML();
+
+    if (firstWordSelected == null) {
+        firstWordSelected = shuffledList[id];
+        console.log("First word Selected: " + firstWordSelected);
+    }
+    else if (secondWordSelected == null) {
+        secondWordSelected = shuffledList[id];
+        console.log("Second word Selected: " + secondWordSelected);
+    }
+    else {
+        console.log(firstWordSelected + secondWordSelected);
+        return null;
+    }
+
+    if(firstWordSelected != null && secondWordSelected != null){
+        if (isThisCorrect()){
+            // TODO: Increase Score.
+            // Leave boxes open.
+            window.alert("CORRECT");
+        }
+        else {
+            window.alert("WRONG!!!");
+        }
+        firstWordSelected = null;
+        secondWordSelected = null;
+    }
+}
 
 
+/*
+* Constructed Table.
+*/
+var shuffledList = shuffleArray(arrayOfWordsMixed);
 let divid = document.getElementById("gameTableDivId");
 let table = document.createElement("table");
 let count = 0;
+
 for (var i = 0; i < 9; i++) {
     let tr = document.createElement("tr");
     for (var j = 0; j < 9; j++) {
         let td = document.createElement("td");
-        td.setAttribute("id", i + "_" + j);
-        td.setAttribute("onClick", "onClickDo(event, this);")
+        td.setAttribute("id", count);
+        td.setAttribute("onClick", "onClickDo(event, this, id);")
         td.innerText = shuffledList[count];
         count++;
         tr.appendChild(td);
     }
     table.appendChild(tr);
 }
+
 divid.appendChild(table);
