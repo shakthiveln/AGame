@@ -1,5 +1,7 @@
 var firstWordSelected = null;
+var idOfFirstSelectedWord = null;
 var secondWordSelected = null;
+var idOfSecondSelectedWord = null;
 var point = 0;
 
 function shuffleArray(array) {
@@ -18,47 +20,61 @@ function isThisCorrect() {
     return false;
 }
 
-function onClickDo(element, id) {
-    console.log("Clicked");
-    console.log(id);
-    console.log(element.getInnerHTML());
+function showOrHideACell(element, add, remove) {
+    let cell = document.getElementById(element);
+    cell.classList.remove(remove);
+    cell.classList.add(add);
+    cell.style.cursor = "pointer";
+    cell.setAttribute("onclick" , "openDoor(id);onClickDo(id);");
+}
+
+function resetAll() {
+    firstWordSelected = null;
+    secondWordSelected = null;
+    idOfFirstSelectedWord = null;
+    idOfSecondSelectedWord = null;
+    document.getElementById("fillFirstSelectedWordID").value = "";
+    document.getElementById("fillSecondSelectedWordID").value = "";
+}
+
+function checkAndValidate() {
+    if (firstWordSelected != null && secondWordSelected != null) {
+        if (isThisCorrect()) {
+            // TODO: Leave boxes open.
+            console.log("correct");
+            point++;
+            document.getElementById("score").innerText = point;
+        }
+        else {
+            // TODO: Close the boxes.
+            console.log("wrong");
+            setTimeout( function () { showOrHideACell(idOfFirstSelectedWord,"hide", "show")}, 500);
+            setTimeout( function () { showOrHideACell(idOfSecondSelectedWord,"hide", "show")}, 500);
+        }
+        setTimeout(resetAll, 1000);
+    }
+}
+
+function onClickDo(id) {
+    console.log("Clicked " + id);
     id = parseInt(id);
-    let value = element.getInnerHTML();
 
     if (firstWordSelected == null) {
         firstWordSelected = shuffledList[id];
         console.log("First word Selected: " + firstWordSelected);
         document.getElementById("fillFirstSelectedWordID").value = firstWordSelected;
+        idOfFirstSelectedWord = id;
     }
     else if (secondWordSelected == null) {
         secondWordSelected = shuffledList[id];
         console.log("Second word Selected: " + secondWordSelected);
         document.getElementById("fillSecondSelectedWordID").value = secondWordSelected;
+        idOfSecondSelectedWord = id;
+        checkAndValidate();
     }
     else {
         console.log(firstWordSelected + secondWordSelected);
         return null;
-    }
-
-    // setTimeout(final,5000);
-
-    if(firstWordSelected != null && secondWordSelected != null){
-        if (isThisCorrect()){
-            point++;
-            // TODO: Increase Score.
-            // Leave boxes open.
-            window.alert("CORRECT");
-            console.log("correct");
-            document.getElementById("score").innerText = point;
-        }
-        else {
-            // window.alert("WRONG!!!");
-            console.log("wrong");
-        }
-        firstWordSelected = null;
-        secondWordSelected = null;
-        document.getElementById("fillFirstSelectedWordID").value = "";
-        document.getElementById("fillSecondSelectedWordID").value = "";
     }
 }
 
@@ -68,12 +84,12 @@ function onClickDo(element, id) {
  */
 function openDoor(element) {
     console.log(element)
-    var cell = document.getElementById(element);
+    let cell = document.getElementById(element);
     cell.classList.add("show");
     cell.classList.remove("hide");
     // cell.innerHTML = '<div class="content">Value: ' + getRandomValue() + '</div>';
     cell.style.cursor = "default";
-    // cell.onclick = null;
+    cell.onclick = null;
 }
 
 /*
@@ -89,7 +105,7 @@ for (var row = 0; row < 9; row++) {
     for (var col = 0; col < 9; col++) {
         let td = document.createElement("td");
         td.setAttribute("id", count);
-        td.setAttribute("onClick", "onClickDo(this, id);openDoor(id)");
+        td.setAttribute("onClick", "openDoor(id);onClickDo(id);");
         td.setAttribute("class", "box hide");
         let span = document.createElement("p");
         span.innerText = shuffledList[count];
