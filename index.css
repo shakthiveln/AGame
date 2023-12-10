@@ -1,11 +1,12 @@
 .fontFamily {
-    font-family: sans-serif;
+    font-family: monospace;
     font-weight: 100;
 }
 
 body {
-    background: -webkit-linear-gradient(45deg, #49a09d, #5f2c82);
-    background: linear-gradient(45deg, #49a09d, #5f2c82);
+    background: linear-gradient(to bottom,  #a0d2eb, #e5eaf5, #d0bdf4, #eef7f6, #c9af98);
+    
+    color: #fff;
 }
 
 .container {
@@ -16,12 +17,18 @@ body {
     transform: translate(-50%, -50%);
 }
 
+
+
 table {
-    width: 800px;
+    width: auto;
     border-collapse: collapse;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(4, 179, 62, 0.1);
+    table-layout: fixed;
+    margin: auto;
+    
 }
+
 
 th,
 td {
@@ -38,13 +45,7 @@ th {
     text-align: left;
 }
 
-thead th {
-    background-color: #55608f;
-}
 
-tbody tr:hover {
-    background-color: rgba(255, 255, 255, 0.336);
-}
 
 tbody td {
     position: relative;
@@ -57,33 +58,43 @@ tbody td:hover:before {
     right: 0;
     top: -9999px;
     bottom: -9999px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(21, 177, 224, 0.2);
     z-index: -1;
 }
 
-table {
-    border-collapse: collapse;
-    width: 50%;
-    margin: auto;
-}
+
 
 table,
 th,
 td {
-    border: 1px solid black;
+     border-radius: 10px; 
+     /* border: 1px solid rgb(0, 0, 0);  */
+    width: 130px;
+    height: 65px;
+    border-end-end-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    
+    
+    
 }
 
-th,
-td {
-    padding: 10px;
-    text-align: center;
-}
+
 
 .box {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #9f7293b8;
+    color: rgb(0, 0, 0);
+    font-size: 17px;
     transform-style: preserve-3d;
     transition: transform 0.5s;
+    width: 130px;
+    height: 50px;
+    border-radius: 10px;
+    margin: 0%;
+    padding: auto;
+    
 }
 
 .box.show {
@@ -173,14 +184,14 @@ td {
         display: block;
         transition: 0.2s;
         font-size: 1rem;
-        color: #11998e;
+        color: #3498db;
         font-weight: 700;
     }
 
     padding-bottom: 6px;
     font-weight: 700;
     border-width: 3px;
-    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    background: linear-gradient(to bottom, #3498db, #2c3e50);
     border-image-slice: 1;
 }
 
