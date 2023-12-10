@@ -1,4 +1,45 @@
-const arrayOfWordsMixed = [
+const arrayOfWordsMixed_6 = [
+    "Phishing", "Scam",
+    "Ransomware", "Attack",
+    "Malware", "Infection",
+    "Data", "Breach",
+    "Spyware", "Threat", "Zero-Day",
+    "Exploit", "Social", "Engineering",
+    "Man", "in-the-Middle", "Denial",
+    "of-Service", "Brute", "Force",
+    "SQL", "Injection", "Cross-Site",
+    "Scripting", "Credential",
+    "Theft", "Botnet", "Operation",
+    "Deep Packet", "Inspection",
+    "Cryptojacking", "Scheme",
+    "Spoofing", "Attack", "Drive-By",
+    "Download"
+];
+
+
+const correctWordsJSON_6 = {
+    "Phishing": "Scam",
+    "Ransomware": "Attack",
+    "Malware": "Infection",
+    "Data": "Breach",
+    "Spyware": "Threat",
+    "Zero-Day": "Exploit",
+    "Social": "Engineering",
+    "Man": "in-the-Middle",
+    "Denial": "of-Service",
+    "Brute": "Force",
+    "SQL": "Injection",
+    "Cross-Site": "Scripting",
+    "Credential": "Theft",
+    "Botnet": "Operation",
+    "Deep Packet": "Inspection",
+    "Cryptojacking": "Scheme",
+    "Spoofing": "Attack",
+    "Drive-By": "Download"
+};
+
+
+const arrayOfWordsMixed_9 = [
     "Phishing", "Scam",
     "Ransomware", "Attack",
     "Malware", "Infection",
@@ -60,5 +101,3 @@ const correctWordsJSON = {
     "DNS": "Spoofing",
     "Keylogger": "Malware"
 };
-
-// export { correctWordsJSON, arrayOfWordsMixed };

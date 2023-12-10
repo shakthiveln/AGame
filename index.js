@@ -13,7 +13,7 @@ function shuffleArray(array) {
 }
 
 function isThisCorrect() {
-    if (correctWordsJSON[firstWordSelected] === secondWordSelected) {
+    if (correctWordsJSON_6[firstWordSelected] === secondWordSelected) {
         console.log("Correct word");
         return true;
     }
@@ -48,10 +48,10 @@ function checkAndValidate() {
         else {
             // TODO: Close the boxes.
             console.log("wrong");
-            setTimeout( function () { showOrHideACell(idOfFirstSelectedWord,"hide", "show")}, 500);
-            setTimeout( function () { showOrHideACell(idOfSecondSelectedWord,"hide", "show")}, 500);
+            setTimeout( function () { showOrHideACell(idOfFirstSelectedWord,"hide", "show")}, 400);
+            setTimeout( function () { showOrHideACell(idOfSecondSelectedWord,"hide", "show")}, 400);
         }
-        setTimeout(resetAll, 1000);
+        setTimeout(resetAll, 400);
     }
 }
 
@@ -95,14 +95,14 @@ function openDoor(element) {
 /*
 * Constructed Table.
 */
-var shuffledList = shuffleArray(arrayOfWordsMixed);
+var shuffledList = shuffleArray(arrayOfWordsMixed_6);
 let divid = document.getElementById("gameTableDivId");
 let table = document.createElement("table");
 let count = 0;
 
-for (var row = 0; row < 9; row++) {
+for (var row = 0; row < 6; row++) {
     let tr = document.createElement("tr");
-    for (var col = 0; col < 9; col++) {
+    for (var col = 0; col < 6; col++) {
         let td = document.createElement("td");
         td.setAttribute("id", count);
         td.setAttribute("onClick", "openDoor(id);onClickDo(id);");
