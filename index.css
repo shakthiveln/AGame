@@ -4,13 +4,12 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-text-align: center;
+    text-align: center;
     font-size: 35px;
     color: black;
 }
 
 .score {
-
     right: 59px;
     padding: 52px;
     float: right;
@@ -36,7 +35,7 @@ body {
 
 table {
     width: auto;
-    border-collapse: collapse;
+    border-collapse: collapse !important;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(4, 179, 62, 0.1);
     table-layout: fixed;
@@ -72,11 +71,6 @@ tbody td:hover:before {
 }
 
 
-
-
-
-
-
 .box {
     background-color: #6b5565b8;
     color: rgb(0, 0, 0);
@@ -87,8 +81,6 @@ tbody td:hover:before {
     height: 50px;
     border-radius: 10px;
     margin: 0%;
-    padding: auto;
-
 }
 
 .box.show {

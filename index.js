@@ -40,16 +40,16 @@ function resetAll() {
 function checkAndValidate() {
     if (firstWordSelected != null && secondWordSelected != null) {
         if (isThisCorrect()) {
-            // TODO: Leave boxes open.
             console.log("correct");
             point++;
             document.getElementById("score").innerText = point;
+            document.getElementById(idOfFirstSelectedWord).style.backgroundColor = "#50a94bb8";
+            document.getElementById(idOfSecondSelectedWord).style.backgroundColor = "#50a94bb8";
             if(point == 18){
                 document.getElementById('winPopUp').style.display = 'flex';
             }
         }
         else {
-            // TODO: Close the boxes.
             console.log("wrong");
             setTimeout( function () { showOrHideACell(idOfFirstSelectedWord,"hide", "show")}, 400);
             setTimeout( function () { showOrHideACell(idOfSecondSelectedWord,"hide", "show")}, 400);
