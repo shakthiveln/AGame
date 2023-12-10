@@ -6,22 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bug Me Game</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
 
-<body>
-    <div>
-        <span id="fillFirstSelectedWordID"></span>
-        <span id="fillSecondSelectedWordID"></span>
-        <span id="score"></span>
-    </div>
-    <div>
-        <p>Bug ME Out</p>
+<body class="fontFamily">
+    <div class="">
+        <span style="font-size: xxx-large;font-weight: 400;text-align: center;margin: auto;display: block;">Bug MEOut</span>
+        <div class="flexDiv fDR">
+            <div class="form__group field">
+                <input name="fillFirstSelectedWordID" class="form__field" type="text" id="fillFirstSelectedWordID" placeholder="First Selected word" readonly>
+                <label for="fillFirstSelectedWordID" class="form__label">First Selected word</label>
+            </div>
+            <div class="form__group field">
+                <input name="fillSecondSelectedWordID" class="form__field" type="text" id="fillSecondSelectedWordID" placeholder="Second Selected word" readonly>
+                <label for="fillSecondSelectedWordID" class="form__label">Second Selected word</label>
+            </div>
+        </div>
+        <div>
+            <span>Score: </span><span id="score"></span>
+        </div>
         <div id="gameTableDivId"></div>
     </div>
-
 </body>
 <script type="text/javascript" src="secret.js"></script>
 <script type="text/javascript" src="index.js"></script>

@@ -1,14 +1,11 @@
-html,
-body {
-    font-family: 'Afacad', sans-serif;
-    height: 100%;
+.fontFamily {
+    font-family: sans-serif;
+    font-weight: 100;
 }
 
 body {
     background: -webkit-linear-gradient(45deg, #49a09d, #5f2c82);
     background: linear-gradient(45deg, #49a09d, #5f2c82);
-    font-family: sans-serif;
-    font-weight: 100;
 }
 
 .container {
@@ -93,7 +90,7 @@ td {
     transform: rotateY(180deg);
 }
 
-.box.show p{
+.box.show p {
     transform: rotateY(-180deg);
 }
 
@@ -113,4 +110,85 @@ td {
 
 .back {
     transform: rotateY(180deg);
+}
+
+.flexDiv {
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+}
+
+.fDR {
+    flex-direction: row;
+}
+
+.fDC {
+    flex-direction: column;
+}
+
+.form__group {
+    position: relative;
+    padding: 10px 30px 10px;
+    margin-top: 10px;
+    width: auto;
+}
+
+.form__field {
+    font-family: inherit;
+    width: auto;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.3rem;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+        color: transparent;
+    }
+
+    &:placeholder-shown~.form__label {
+        font-size: 1.3rem;
+        cursor: text;
+        top: 20px;
+    }
+}
+
+.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #9b9b9b;
+}
+
+.form__field:focus {
+    ~.form__label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 1rem;
+        color: #11998e;
+        font-weight: 700;
+    }
+
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    border-image-slice: 1;
+}
+
+/* reset input */
+.form__field {
+
+    &:required,
+    &:invalid {
+        box-shadow: none;
+    }
 }

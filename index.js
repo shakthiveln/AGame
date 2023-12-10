@@ -28,12 +28,12 @@ function onClickDo(element, id) {
     if (firstWordSelected == null) {
         firstWordSelected = shuffledList[id];
         console.log("First word Selected: " + firstWordSelected);
-        document.getElementById("fillFirstSelectedWordID").innerHTML = firstWordSelected;
+        document.getElementById("fillFirstSelectedWordID").value = firstWordSelected;
     }
     else if (secondWordSelected == null) {
         secondWordSelected = shuffledList[id];
         console.log("Second word Selected: " + secondWordSelected);
-        document.getElementById("fillSecondSelectedWordID").innerHTML = secondWordSelected;
+        document.getElementById("fillSecondSelectedWordID").value = secondWordSelected;
     }
     else {
         console.log(firstWordSelected + secondWordSelected);
@@ -57,11 +57,15 @@ function onClickDo(element, id) {
         }
         firstWordSelected = null;
         secondWordSelected = null;
-        document.getElementById("fillFirstSelectedWordID").innerHTML = "";
-        document.getElementById("fillSecondSelectedWordID").innerHTML = "";
+        document.getElementById("fillFirstSelectedWordID").value = "";
+        document.getElementById("fillSecondSelectedWordID").value = "";
     }
 }
 
+/**
+ * CSS for Cells
+ * @param {} element 
+ */
 function openDoor(element) {
     console.log(element)
     var cell = document.getElementById(element);
@@ -97,3 +101,4 @@ for (var row = 0; row < 9; row++) {
 }
 
 divid.appendChild(table);
+document.getElementById("score").innerText = point;
