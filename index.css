@@ -4,11 +4,23 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    text-align: center;
+    font-size: 35px;
+    color: black;
+}
+
+.score {
+
+    right: 59px;
+    padding: 52px;
+    float: right;
+    position: absolute;
+    font-size: xx-large;
 }
 
 body {
-    background: linear-gradient(to bottom,  #a0d2eb, #e5eaf5, #d0bdf4, #eef7f6, #c9af98);
-    
+    background: linear-gradient(to bottom, #a0d2eb, #e5eaf5, #d0bdf4, #eef7f6, #c9af98);
+
     color: #fff;
 }
 
@@ -29,7 +41,7 @@ table {
     box-shadow: 0 0 20px rgba(4, 179, 62, 0.1);
     table-layout: fixed;
     margin: auto;
-    
+
 }
 
 
@@ -67,27 +79,12 @@ tbody td:hover:before {
 
 
 
-table,
-th,
-td {
-     border-radius: 10px; 
-     /* border: 1px solid rgb(0, 0, 0);  */
-    width: 130px;
-    height: 65px;
-    border-end-end-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
-    
-    
-    
-}
+
 
 
 
 .box {
-    background-color: #9f7293b8;
+    background-color: #6b5565b8;
     color: rgb(0, 0, 0);
     font-size: 17px;
     transform-style: preserve-3d;
@@ -97,7 +94,7 @@ td {
     border-radius: 10px;
     margin: 0%;
     padding: auto;
-    
+
 }
 
 .box.show {

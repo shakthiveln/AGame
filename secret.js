@@ -79,7 +79,7 @@ const arrayOfWordsMixed_9 = [
 ];
 
 
-const correctWordsJSON = {
+const correctWordsJSON_9 = {
     "Phishing": "Scam",
     "Ransomware": "Attack",
     "Malware": "Infection",
