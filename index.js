@@ -44,6 +44,9 @@ function checkAndValidate() {
             console.log("correct");
             point++;
             document.getElementById("score").innerText = point;
+            if(point == 18){
+                document.getElementById('winPopUp').style.display = 'flex';
+            }
         }
         else {
             // TODO: Close the boxes.
@@ -53,6 +56,10 @@ function checkAndValidate() {
         }
         setTimeout(resetAll, 400);
     }
+}
+
+function closePopup() {
+    document.getElementById('winPopUp').style.display = 'none';
 }
 
 function onClickDo(id) {
